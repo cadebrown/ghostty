@@ -449,6 +449,7 @@ typedef struct {
   size_t env_var_count;
   const char* initial_input;
   bool wait_after_command;
+  bool is_quick_terminal;
   ghostty_surface_context_e context;
 } ghostty_surface_config_s;
 

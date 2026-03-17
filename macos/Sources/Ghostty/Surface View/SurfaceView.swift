@@ -659,6 +659,9 @@ extension Ghostty {
         /// Wait after the command
         var waitAfterCommand: Bool = false
 
+        /// Whether this surface is a quick terminal
+        var isQuickTerminal: Bool = false
+
         /// Context for surface creation
         var context: ghostty_surface_context_e = GHOSTTY_SURFACE_CONTEXT_WINDOW
 
@@ -683,6 +686,7 @@ extension Ghostty {
                     }
                 }
             }
+            self.isQuickTerminal = config.is_quick_terminal
             self.context = config.context
         }
 
@@ -716,6 +720,9 @@ extension Ghostty {
 
             // Set wait after command
             config.wait_after_command = waitAfterCommand
+
+            // Set quick terminal flag
+            config.is_quick_terminal = isQuickTerminal
 
             // Set context
             config.context = context
